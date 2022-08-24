@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .row {
+        @apply bg-white border p-3 my-2 m-5
+    }
+
+    .card {
+        @apply border m-4 
+    }
+    
+    .card-content {
+        @apply my-4 mx-4
+    }
+
+    .card-title {
+        @apply font-bold text-base
+    }
+
+    .card-action {
+        @apply mt-3
+    }
+
+    .btn {
+        @apply bg-black hover:bg-gray-800 text-white p-2 
+    }
+
+    .cate-item{
+        @apply border-b py-1 text-gray-500 hover:text-black cursor-pointer
+    }
+}

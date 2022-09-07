@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next'
 import React, { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/router'
+import { Router, useRouter } from 'next/router'
 import { listProductConnection, Product } from '../typings/product'
 import CartContext, { CartAction, CartState, ShopCartListModalContext, useCartReducer } from '../contexts/cart/cart'
 import { converCartItemQty, qDecoder, qEncoder } from '../lib/qCodec'
@@ -18,14 +18,16 @@ import Head from 'next/head'
 // }
 
 const linktree: { [k: string]: string } = {
-  "Instagram": "https://www.instagram.com/goodstify_au/",
+  "Instagram": "https://www.instagram.com/goodstify/",
   "Goodstify AU (Australia)": "./au",
-  "Goodstify JP (Japan) Comming Soon": "#",
+  "Goodstify JP (Japan)": "/jp",
   "Goodstify TW": "#"
   // "Goodstify JP": "./jp"
 }
 
 const Home: NextPage = () => {
+
+  const router = useRouter();
 
 
   return (
@@ -43,7 +45,7 @@ const Home: NextPage = () => {
             {Object.keys(linktree).map((title: string) => (
 
               <div className='text-center m-4' key={title}>
-                <a href={linktree[title]} >
+                <div className='cursor-pointer' onClick={() => router.push(linktree[title])} >
                   {(linktree[title] !== "#") ?
                     <div className='border border-black text-3x p-4 hover:bg-black hover:text-white'>
                       {title}
@@ -55,7 +57,7 @@ const Home: NextPage = () => {
 
                   }
 
-                </a>
+                </div>
               </div>
             ))
             }

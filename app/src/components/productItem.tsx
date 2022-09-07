@@ -11,8 +11,8 @@ const ProductItem = (): JSX.Element => {
         !openProductItem ?
             <></>
             :
-            <div className="w-full h-screen flex fixed bg-black bg-opacity-70">
-                <div className="container mx-auto p-8 self-center">
+            <div className="w-full h-screen flex fixed bg-black bg-opacity-70 z-40">
+                <div className="container mx-auto p-8 overflow-y-auto">
                     <div className="text-right mr-4 mb-6">
                         <button className="text-4xl text-white" onClick={() => setOpenProductItem(null)}>X</button>
                     </div>

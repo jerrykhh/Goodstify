@@ -55,6 +55,8 @@ exports.handler = async (event: PostProps) => {
             body: JSON.stringify(data.Responses!["goodstify-products"].map((obj) => DynamoDB.Converter.unmarshall(obj)))
         
         }
+
+        
     }catch (e){
         return {msg: `Failed ${e}`};
     
